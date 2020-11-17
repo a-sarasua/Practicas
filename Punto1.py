@@ -10,12 +10,6 @@ persona = {
   "Telefono":""
 }
 
-for i in persona:
-	persona[i] = input(f"Ingrese su {i} :" )
-
-imc = round(float(persona["Peso"])/(float(persona["Altura"])**2),2)
-persona["IMC"] = imc
-
 def cat_imc(imc):
 	if imc < 18.5:
 		print("usted tiene Bajo Peso")
@@ -30,6 +24,15 @@ def cat_imc(imc):
 	else:
 		print("usted tiene Obesidad tipo III")
 
-def imprimir():
+def imprimir(persona):
 	for i in persona:
-		print (i, ":", persona[i])
+		print (i, ":", persona[i].upper())
+
+for i in persona:
+	persona[i] = input(f"Ingrese su {i} :" )
+
+imc = round(float(persona["Peso"])/(float(persona["Altura"])**2),2)
+persona["IMC"] = imc
+
+cat_imc(imc)
+imprimir(persona)
